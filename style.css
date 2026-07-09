@@ -1,0 +1,119 @@
+:root{
+  --teal:#0F2E2E;
+  --teal-deep:#0A2020;
+  --sand:#E8DCC8;
+  --ink:#F5F0E6;
+  --rust:#C1652F;
+  --line:rgba(245,240,230,0.14);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  background:var(--teal);
+  color:var(--ink);
+  font-family:'Inter',sans-serif;
+  min-height:100vh;
+}
+
+.header{
+  padding:72px 24px 32px;
+  text-align:center;
+}
+.eyebrow{
+  font-size:12px;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--rust);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.title{
+  font-family:'Playfair Display',serif;
+  font-weight:900;
+  font-size:clamp(40px,8vw,84px);
+  line-height:0.95;
+}
+.title span{
+  display:block;
+  font-style:italic;
+  font-weight:500;
+  color:var(--sand);
+  font-size:0.55em;
+}
+.subtitle{
+  margin-top:18px;
+  color:var(--sand);
+  opacity:0.75;
+  font-size:15px;
+  max-width:420px;
+  margin-inline:auto;
+}
+
+.filters{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+  padding:0 24px 48px;
+}
+.filter-chip{
+  background:transparent;
+  border:1px solid var(--line);
+  color:var(--ink);
+  padding:9px 20px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:500;
+  cursor:pointer;
+  transition:all .25s ease;
+}
+.filter-chip:hover{border-color:var(--rust);}
+.filter-chip.active{
+  background:var(--rust);
+  border-color:var(--rust);
+  color:var(--teal-deep);
+  font-weight:600;
+}
+
+.gallery{
+  columns:4 220px;
+  column-gap:14px;
+  padding:0 32px 100px;
+  max-width:1400px;
+  margin:0 auto;
+}
+.g-item{
+  break-inside:avoid;
+  margin-bottom:14px;
+  position:relative;
+  overflow:hidden;
+  border-radius:6px;
+  cursor:pointer;
+  background:var(--teal-deep);
+}
+.g-item img{
+  width:100%;
+  display:block;
+  transition:transform .5s cubic-bezier(.2,.8,.2,1), filter .4s ease;
+}
+.g-item::after{
+  content:attr(data-label);
+  position:absolute;
+  left:0;right:0;bottom:0;
+  padding:14px 12px 10px;
+  font-size:12px;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:var(--ink);
+  background:linear-gradient(to top, rgba(10,32,32,0.85), transparent);
+  opacity:0;
+  transform:translateY(6px);
+  transition:opacity .3s ease, transform .3s ease;
+}
+.g-item:hover img{transform:scale(1.06);}
+.g-item:hover::after{opacity:1;transform:translateY(0);}
+.g-item.hide{display:none;}
+
+.lightbox{
+  pos
